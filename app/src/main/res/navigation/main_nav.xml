@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.dmribeiro.marvelinfinityapp.view.ListFragment"
+        android:label="@string/main_title"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_listFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popExitAnim="@anim/to_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.dmribeiro.marvelinfinityapp.view.DetailsFragment"
+        android:label="@string/details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/from_left" />
+        <argument
+            android:name="currentMovie"
+            app:argType="com.dmribeiro.marvelinfinityapp.model.MovieItem" />
+        <action
+            android:id="@+id/action_detailsFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment"
+            app:enterAnim="@anim/from_left" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.dmribeiro.marvelinfinityapp.view.FavoriteFragment"
+        android:label="@string/favorites"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/from_left" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+</navigation>

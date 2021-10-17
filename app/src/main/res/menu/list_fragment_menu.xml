@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<item
+    android:id="@+id/menu_search"
+    android:title="@string/search"
+    android:icon="@drawable/ic_search"
+
+    app:showAsAction="ifRoom"
+    app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+    <item
+        android:id="@+id/menu_favorite"
+        android:title="@string/favorite"
+        android:icon="@drawable/ic_favorite_home"
+        app:showAsAction="ifRoom"/>
+
+    <group android:checkableBehavior="none">
+        <item android:id="@+id/menu_sortBy"
+            android:title="@string/sort_by"
+            android:icon="@drawable/ic_filter"
+            app:showAsAction="ifRoom">
+            <menu>
+                <item android:id="@+id/menu_name"
+                    android:title="@string/name"
+                    android:icon="@drawable/ic_sort_by_alpha"
+                    />
+
+                <item android:id="@+id/menu_year"
+                    android:title="@string/year"
+                    android:icon="@drawable/ic_date"
+                    />
+            </menu>
+        </item>
+    </group>
+
+</menu>
