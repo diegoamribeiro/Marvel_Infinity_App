@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.dmribeiro.marvelinfinityapp.databinding.ItemFavoriteMovieBinding
 import com.dmribeiro.marvelinfinityapp.databinding.ItemMovieBinding
 import com.dmribeiro.marvelinfinityapp.model.FavoriteEntity
 import com.dmribeiro.marvelinfinityapp.model.MovieItem
@@ -14,10 +15,10 @@ import com.dmribeiro.marvelinfinityapp.utils.DiffUtilGeneric
 
 class FavoriteAdapter : RecyclerView.Adapter<FavoriteViewHolder>() {
 
-    private var movieList = emptyList<FavoriteEntity>()
+    var movieList = emptyList<FavoriteEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
-        val binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemFavoriteMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FavoriteViewHolder(binding)
     }
 
@@ -47,4 +48,4 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteViewHolder>() {
     override fun getItemCount() = movieList.size
 }
 
-class FavoriteViewHolder(val binding: ItemMovieBinding): RecyclerView.ViewHolder(binding.root)
+class FavoriteViewHolder(val binding: ItemFavoriteMovieBinding): RecyclerView.ViewHolder(binding.root)

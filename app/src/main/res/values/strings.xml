@@ -21,10 +21,12 @@
     <string name="main_title">Marvel Infinity Saga</string>
     <string name="sort_by">Sort By</string>
     <string name="name">Name</string>
-    <string name="rated">Rated</string>
     <string name="actors">Actors: </string>
     <string name="runtime">Runtime: </string>
     <string name="writers">Writers: </string>
     <string name="favorite">Favorite</string>
     <string name="favorites">Favorites</string>
+    <string name="no_favorites_here">No Favorites here</string>
+    <string name="no_connection">No Connection</string>
+    <string name="rated">Rated</string>
 </resources>

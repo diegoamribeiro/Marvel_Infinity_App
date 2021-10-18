@@ -1,14 +1,16 @@
 package com.dmribeiro.marvelinfinityapp.view
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dmribeiro.marvelinfinityapp.R
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dmribeiro.marvelinfinityapp.databinding.FragmentFavoriteBinding
 import com.dmribeiro.marvelinfinityapp.viewmodel.ListViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,27 +29,33 @@ class FavoriteFragment : Fragment() {
     ): View {
         binding = FragmentFavoriteBinding.inflate(layoutInflater, container, false)
 
-
+        viewModel.emptyDatabase.observe(viewLifecycleOwner,  {
+            showEmptyDatabaseView(it)
+        })
         setupRecyclerView()
-        readMoviesFromDatabase()
         return binding.root
     }
 
+    private fun showEmptyDatabaseView(emptyDatabase: Boolean){
+        if (emptyDatabase){
+            binding.tvNoData.visibility = View.VISIBLE
+            binding.ivNoData.visibility = View.VISIBLE
+        }else{
+            binding.tvNoData.visibility = View.INVISIBLE
+            binding.ivNoData.visibility = View.INVISIBLE
+        }
+    }
 
     private fun setupRecyclerView(){
         recyclerView = binding.rvFavoriteList
         recyclerView.apply {
             adapter = favoriteListAdapter
-            layoutManager = GridLayoutManager(requireContext(), 1)
+            layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL)
         }
-    }
 
-    private fun readMoviesFromDatabase(){
-        viewModel.readFavoriteMovies.observe(viewLifecycleOwner, {favoriteMovies->
-            if (favoriteMovies.isNotEmpty()){
-                favoriteListAdapter.setData(favoriteMovies)
-            }
+        viewModel.readFavoriteMovies.observe(viewLifecycleOwner, {data ->
+            viewModel.verifyEmptyList(data)
+            favoriteListAdapter.setData(data)
         })
     }
-
 }

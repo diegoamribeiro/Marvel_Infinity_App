@@ -23,8 +23,8 @@ class ListAdapter : RecyclerView.Adapter<ListViewHolder>() {
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.binding.apply {
             tvTitle.text = movieList[position].title
-            tvYear.text = movieList[position].year
-//            tvGenre.text = movieList[position].genre
+            tvYear.text = movieList[position].released
+           tvGenre.text = movieList[position].genre
             Glide.with(ivCover)
                 .load(movieList[position].poster)
                 .transition(DrawableTransitionOptions.withCrossFade())

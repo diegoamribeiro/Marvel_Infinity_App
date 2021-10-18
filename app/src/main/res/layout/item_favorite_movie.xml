@@ -27,7 +27,7 @@
         <ImageView
             android:id="@+id/ivCover"
             android:layout_width="match_parent"
-            android:layout_height="271dp"
+            android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:contentDescription="@string/movie_description"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -42,32 +42,35 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="1dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/yellow"
             android:fontFamily="sans-serif-black"
             android:paddingStart="1dp"
             android:paddingEnd="1dp"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="@id/ivCover"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/ivCover"
             app:layout_constraintTop_toTopOf="@+id/ivCover"
             tools:text="@string/year" />
 
-        <TextView
-            android:id="@+id/tvGenre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/yellow"
-            android:fontFamily="sans-serif-black"
-            android:paddingStart="1dp"
-            android:paddingEnd="1dp"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/tvTitle"
-            app:layout_constraintEnd_toEndOf="@id/ivCover"
-            app:layout_constraintStart_toStartOf="@+id/ivCover"
-            tools:text="@string/action" />
+<!--        <TextView-->
+<!--            android:id="@+id/tvGenre"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="1dp"-->
+<!--            android:layout_marginTop="1dp"-->
+<!--            android:background="@color/vermilion"-->
+<!--            android:fontFamily="sans-serif-black"-->
+<!--            android:paddingStart="1dp"-->
+<!--            android:paddingEnd="1dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/ivCover"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="@id/ivCover"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/ivCover"-->
+<!--            tools:text="@string/action" />-->
 
         <TextView
             android:id="@+id/tvTitle"
@@ -77,7 +80,7 @@
             android:fontFamily="sans-serif-black"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

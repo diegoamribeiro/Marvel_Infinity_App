@@ -1,5 +1,7 @@
 package com.dmribeiro.marvelinfinityapp.view
 
+import android.graphics.Color.green
+import android.graphics.Color.red
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -27,6 +29,8 @@ class DetailsFragment : Fragment() {
     private var isMovieSaved = false
     private var savedMovieId = 0
 
+    private lateinit var menuItem: MenuItem
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,6 +52,7 @@ class DetailsFragment : Fragment() {
         binding.tvCurrentRuntime.text = args.currentMovie.runtime
         binding.tvCurrentActor.text = args.currentMovie.actors
         binding.tvCurrentWriters.text = args.currentMovie.writer
+        binding.tvCurrentRated.text = args.currentMovie.rated
         Glide.with(binding.ivCurrentDetail)
             .load(args.currentMovie.poster)
             .transition(DrawableTransitionOptions.withCrossFade())
@@ -58,21 +63,16 @@ class DetailsFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.details_fragment_menu, menu)
-        val menuItem = menu.findItem(R.id.save_to_favorites)
-        checkSavedRecipes(menuItem!!)
+        menuItem = menu.findItem(R.id.save_to_favorites)
+        checkSavedRecipes(menuItem)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when {
-            item.itemId == R.id.save_to_favorites && !isMovieSaved -> {
-                saveToFavorites(item)
-            }
-
-            item.itemId == R.id.save_to_favorites && isMovieSaved -> {
-                removeFromFavorite(item)
-            }
-
+        if(item.itemId == R.id.save_to_favorites && !isMovieSaved) {
+            saveToFavorites(item)
+        }else if (item.itemId == R.id.save_to_favorites && isMovieSaved){
+            removeFromFavorite(item)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -83,42 +83,49 @@ class DetailsFragment : Fragment() {
             args.currentMovie
         )
         viewModel.insertFavoriteMovie(favoriteEntity)
-        changeMenuItemColor(item, R.color.yellow)
-        showSnackBar("Saved into favorites!")
+        changeMenuItemColor(item, R.color.vermilion)
+        showSnackBar("Saved into favorites!", resources.getColor(R.color.green))
         isMovieSaved = true
     }
 
     private fun checkSavedRecipes(menuItem: MenuItem) {
-        lifecycleScope.launch {
         viewModel.readFavoriteMovies.observe(viewLifecycleOwner, { favoriteEntity ->
             try {
-                for (savedRecipe in favoriteEntity){
-                    if (savedRecipe.movie.id == args.currentMovie.id){
+                for (savedRecipe in favoriteEntity) {
+                    if (savedRecipe.movie.id == args.currentMovie.id) {
                         changeMenuItemColor(menuItem, R.color.vermilion)
                         savedMovieId = savedRecipe.id
                         isMovieSaved = true
                     }
                 }
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 Log.d("DetailsFragment", e.message.toString())
             }
         })
-        }
     }
 
     private fun removeFromFavorite(item: MenuItem){
         val favoriteEntity = FavoriteEntity(savedMovieId, args.currentMovie)
         viewModel.deleteFavoriteMovie(favoriteEntity)
         changeMenuItemColor(item, R.color.white)
-        showSnackBar("Removed from favorites!")
+        showSnackBar("Removed from favorites!", resources.getColor(R.color.vermilion))
         isMovieSaved = false
     }
 
-    private fun showSnackBar(message: String) {
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).setAction("OK"){}.show()
+    private fun showSnackBar(message: String, color: Int) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT)
+            .setAction("OK"){}
+            .setBackgroundTint(color).show()
     }
 
     private fun changeMenuItemColor(item: MenuItem, color: Int) {
         item.icon.setTint(ContextCompat.getColor(requireContext(), color))
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        changeMenuItemColor(menuItem, R.color.white)
+    }
+
+
 }

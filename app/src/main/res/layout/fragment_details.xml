@@ -172,6 +172,30 @@
                 tools:text="Robert" />
 
             <TextView
+                android:id="@+id/tvLabelRated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:paddingEnd="4dp"
+                android:text="@string/rated"
+                android:textColor="@color/ice"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelRuntime" />
+
+            <TextView
+                android:id="@+id/tvCurrentRated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-light"
+                android:textColor="@color/ice"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/tvLabelRated"
+                app:layout_constraintTop_toTopOf="@id/tvLabelRated"
+                tools:text="Robert" />
+
+            <TextView
                 android:id="@+id/tvLabelActor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -182,7 +206,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline7"
-                app:layout_constraintTop_toBottomOf="@id/tvLabelRuntime" />
+                app:layout_constraintTop_toBottomOf="@id/tvLabelRated" />
 
             <TextView
                 android:id="@+id/tvCurrentActor"

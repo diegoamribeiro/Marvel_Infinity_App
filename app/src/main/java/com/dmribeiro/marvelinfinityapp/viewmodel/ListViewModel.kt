@@ -17,6 +17,13 @@ class ListViewModel @Inject constructor(
     private val repository: Repository
 ): ViewModel(){
 
+    val emptyDatabase: MutableLiveData<Boolean> = MutableLiveData(true)
+
+    fun verifyEmptyList(list: List<FavoriteEntity>){
+        emptyDatabase.value = list.isEmpty()
+    }
+
+
     // Database Call
     var readMovies: LiveData<List<MovieItem>> = repository.local.getAllMoviesFromDataBase().asLiveData()
     val sortByTitle = repository.local.filterByTitle()
@@ -32,7 +39,6 @@ class ListViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertFavoriteMovie(favoriteEntity)
         }
-
 
     fun deleteFavoriteMovie(favoriteEntity: FavoriteEntity) =
         viewModelScope.launch(Dispatchers.IO) {
@@ -82,5 +88,4 @@ class ListViewModel @Inject constructor(
     fun searchDatabase(searchQuery: String): LiveData<List<MovieItem>> {
         return repository.local.searchFromDatabase(searchQuery)
     }
-
 }
