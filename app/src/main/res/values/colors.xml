@@ -2,13 +2,13 @@
 <resources>
     <color name="colorPrimary">#FFBB86FC</color>
     <color name="colorPrimaryDark">#FF4025</color>
-    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorAccent">#BD0D0D</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="green">#1BAE56</color>
     <color name="black">#171717</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="ice">#F1F1F1</color>
+    <color name="ice">#E4E3E3</color>
     <color name="grey">#676767</color>
     <color name="light_grey">#BABABA</color>
     <color name="yellow">#F3B416</color>

@@ -39,22 +39,19 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     private val mAdapter: ListAdapter by lazy { ListAdapter() }
     private lateinit var mLayoutManager: GridLayoutManager
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        mLayoutManager = GridLayoutManager(requireContext(), 2)
+        mLayoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
         viewModel = ViewModelProvider(requireActivity()).get(ListViewModel::class.java)
         binding = FragmentListBinding.inflate(layoutInflater, container, false)
 
         setupRecyclerView()
 
-
         binding.rvList.showShimmer()
         setHasOptionsMenu(true)
         requestDatabase()
-
         return binding.root
     }
 
@@ -183,5 +180,4 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         editor.apply()
         recyclerView.scrollToPosition(lastPosition)
     }
-
 }

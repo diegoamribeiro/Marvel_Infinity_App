@@ -99,4 +99,6 @@ dependencies {
 
     //RecyclerView Animation
     implementation "jp.wasabeef:recyclerview-animators:4.0.2"
+    //Paging 3
+    implementation "androidx.paging:paging-runtime-ktx:3.0.1"
 }
