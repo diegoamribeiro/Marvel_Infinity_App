@@ -22,14 +22,21 @@ This application consists of consume the Marvel Infinity Saga API.
 - Clean Architecture
 
 
-## Overview _______________________________________ Search engine
-![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/infinity_1.png)  ![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/infinity_3.png)
+## Overview
+![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/infinity_1.png)  
+
+
+## Search engine
+![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/infinity_3.png)
 
 
 
-## Filter By Name A/Z _____________________________ Save to Favorites 
-![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/infinity_2.png) ![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/infinity_4.png)
+## Filter By Name A/Z
+![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/infinity_2.png) 
 
+
+ ## Save to Favorites 
+![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/infinity_4.png)
 
 
 ## Show Favorites
