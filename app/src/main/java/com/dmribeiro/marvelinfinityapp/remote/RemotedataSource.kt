@@ -9,7 +9,7 @@ class RemotedataSource @Inject constructor(
 ) {
 
     suspend fun getAllMovies(): Response<List<MovieItem>>{
-        return movieApi.getAllCategories()
+        return movieApi.getAllMovies()
     }
 
 }

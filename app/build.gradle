@@ -88,7 +88,7 @@ dependencies {
     implementation 'com.todkars:shimmer-recyclerview:0.4.1'
 
     //Coil https://github.com/coil-kt/coil
-    implementation "io.coil-kt:coil:1.1.1"
+    //implementation "io.coil-kt:coil:1.1.1"
 
     //Dagger Hilt
     implementation "com.google.dagger:hilt-android:2.37"
@@ -101,4 +101,12 @@ dependencies {
     implementation "jp.wasabeef:recyclerview-animators:4.0.2"
     //Paging 3
     implementation "androidx.paging:paging-runtime-ktx:3.0.1"
+
+    // Tests
+    implementation "com.squareup.okhttp3:mockwebserver:4.3.1"
+    testImplementation "io.mockk:mockk:1.9.3"
+    androidTestImplementation "io.mockk:mockk-android:1.9.2"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1'
+    androidTestImplementation "androidx.test:core-ktx:1.4.0"
 }

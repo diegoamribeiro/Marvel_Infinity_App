@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#FFBB86FC</color>
     <color name="colorPrimaryDark">#FF4025</color>
-    <color name="colorAccent">#BD0D0D</color>
+    <color name="colorAccent">#040303</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="green">#1BAE56</color>
@@ -16,5 +16,4 @@
     <color name="black_50_percent_opacity">#80000000</color>
     <color name="black_100_percent_opacity">#00050505</color>
     <color name="black_20_percent_opacity">#CB050505</color>
-
 </resources>

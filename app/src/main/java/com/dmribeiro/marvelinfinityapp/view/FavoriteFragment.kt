@@ -84,7 +84,7 @@ class FavoriteFragment : Fragment() {
                     confirmRemoval()
                     setupRecyclerView()
                 }else{
-                    showSnackBar("Nothing to Show", resources.getColor(R.color.black, resources.newTheme()))
+                    showSnackBar("Nothing to Delete", resources.getColor(R.color.black, resources.newTheme()))
                 }
             }
         }

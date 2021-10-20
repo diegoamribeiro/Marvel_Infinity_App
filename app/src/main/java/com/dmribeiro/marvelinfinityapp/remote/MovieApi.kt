@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface MovieApi {
 
     @GET("saga")
-    suspend fun getAllCategories(): Response<List<MovieItem>>
+    suspend fun getAllMovies(): Response<List<MovieItem>>
 
 }
